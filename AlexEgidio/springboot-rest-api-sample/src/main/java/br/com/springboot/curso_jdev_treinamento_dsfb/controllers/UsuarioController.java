@@ -40,7 +40,12 @@ public class UsuarioController {
     public String greetingText(@PathVariable String name) {
         return "Curso Spring Boot API: " + name + "!";
     }
-    
+
+    @RequestMapping(value = "/olaMundo")
+    public String olaMundo() {
+        return "Olá, Mundo!";
+    }
+
     /**
     *
     * @param name the name to greet
@@ -104,5 +109,12 @@ public class UsuarioController {
 	   Usuario user = usuarioRepository.saveAndFlush(usuario);
 	   return new ResponseEntity<Usuario>(user, HttpStatus.OK);
    }
-   
+
+   @GetMapping(value = "buscarPorNome") /* Mapeia a URL */
+   @ResponseBody /* descreve a resposta */
+   public ResponseEntity<List<Usuario>> buscarPorNome(@RequestParam(name = "namePart") String namePart) {
+	   /* Faz a consulta de usuários com nomes contendo uma parte em comum. */
+	   List<Usuario> listaUsuarios = usuarioRepository.buscarPorNome(namePart);
+	   return new ResponseEntity<List<Usuario>>(listaUsuarios, HttpStatus.OK);
+   }
 }
