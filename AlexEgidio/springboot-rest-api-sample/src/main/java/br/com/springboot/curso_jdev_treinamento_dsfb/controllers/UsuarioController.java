@@ -1,8 +1,10 @@
 package br.com.springboot.curso_jdev_treinamento_dsfb.controllers;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -84,15 +86,23 @@ public class UsuarioController {
    @DeleteMapping(value="apagar") /* Mapeia a URL */
    @ResponseBody /* descreve a resposta */
    public ResponseEntity<String> apagar(@RequestParam Long idUser) {
-	   this.usuarioRepository.deleteById(idUser);
-	   return new ResponseEntity<String>("Usuário apagado com sucesso!", HttpStatus.OK);
+	   try {
+		   this.usuarioRepository.deleteById(idUser);
+		   return new ResponseEntity<String>("Usuário apagado com sucesso!", HttpStatus.OK);
+	   } catch (EmptyResultDataAccessException e) {
+		   return new ResponseEntity<String>("O usuário informado não existe!", HttpStatus.BAD_REQUEST);
+	   }
    }
 
    @GetMapping(value="buscarUserId") /* Mapeia a URL */
    @ResponseBody /* descreve a resposta */
-   public ResponseEntity<Usuario> buscarUserId(@RequestParam(name = "idUser") Long idUser) {
-	   Usuario usuario = usuarioRepository.findById(idUser).get();
-	   return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
+   public ResponseEntity<?> buscarUserId(@RequestParam(name = "idUser") Long idUser) {
+	   try {
+		   Usuario usuario = usuarioRepository.findById(idUser).get();
+		   return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
+	   } catch (NoSuchElementException e) {
+		   return new ResponseEntity<String>("O id informado não é de um usuário existente!", HttpStatus.BAD_REQUEST);
+	   }
    }
    
    @PutMapping(value="atualizar") /* Mapeia a URL */
@@ -103,7 +113,7 @@ public class UsuarioController {
 	    * Recebe dados para update!
 	    * */
 	   if (usuario.getId() == null) {
-		   return new ResponseEntity<String>("Id não foi informado p/ atualizar o usuário!", HttpStatus.BAD_REQUEST);
+		   return new ResponseEntity<String>("O id não foi informado p/ atualizar o usuário!", HttpStatus.BAD_REQUEST);
 	   }
 
 	   Usuario user = usuarioRepository.saveAndFlush(usuario);
@@ -114,7 +124,7 @@ public class UsuarioController {
    @ResponseBody /* descreve a resposta */
    public ResponseEntity<List<Usuario>> buscarPorNome(@RequestParam(name = "namePart") String namePart) {
 	   /* Faz a consulta de usuários com nomes contendo uma parte em comum. */
-	   List<Usuario> listaUsuarios = usuarioRepository.buscarPorNome(namePart);
+	   List<Usuario> listaUsuarios = usuarioRepository.buscarPorNome(namePart.trim().toUpperCase());
 	   return new ResponseEntity<List<Usuario>>(listaUsuarios, HttpStatus.OK);
    }
 }
