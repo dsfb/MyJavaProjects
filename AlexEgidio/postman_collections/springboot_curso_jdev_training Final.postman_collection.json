@@ -1,0 +1,755 @@
+{
+	"info": {
+		"_postman_id": "53628f1b-530b-41b0-86b6-412e26909448",
+		"name": "springboot_curso_jdev_training Final",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Listar todos usuários",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/springboot-rest-api-sample/listaTodos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"springboot-rest-api-sample",
+						"listaTodos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Adicionar usuário Fim",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Daniela Santos\",\r\n    \"idade\": 45\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/springboot-rest-api-sample/salvar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"springboot-rest-api-sample",
+						"salvar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Apagar o segundo usuário",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idUser",
+							"value": "20",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/springboot-rest-api-sample/apagar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"springboot-rest-api-sample",
+						"apagar"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar um usuário por id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idUser",
+							"value": "2",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/springboot-rest-api-sample/buscarUserId",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"springboot-rest-api-sample",
+						"buscarUserId"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar um usuário",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 10,\r\n    \"nome\": \"alex atualizado spi spring boot\",\r\n    \"idade\": 34\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/springboot-rest-api-sample/atualizar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"springboot-rest-api-sample",
+						"atualizar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Falha ao atualizar um usuário",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Rebeca\",\r\n    \"idade\": 33\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/springboot-rest-api-sample/atualizar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"springboot-rest-api-sample",
+						"atualizar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Olá, Mundo!",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/springboot-rest-api-sample/olaMundo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"springboot-rest-api-sample",
+						"olaMundo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar usuários com nomes em comum",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "namePart",
+							"value": "IEL",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/springboot-rest-api-sample/buscarPorNome",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"springboot-rest-api-sample",
+						"buscarPorNome"
+					],
+					"query": [
+						{
+							"key": "namePart",
+							"value": "iel",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Adicionar usuario id 1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idade\": 0,\r\n    \"nome\": \"alex egidio teste gravcao\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/springboot-rest-api-sample/salvar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"springboot-rest-api-sample",
+						"salvar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Adicionar usuario id 2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idade\": 0,\r\n    \"nome\": \"alex egidio teste gravcao\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/springboot-rest-api-sample/salvar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"springboot-rest-api-sample",
+						"salvar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Adicionar usuario id 3",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idade\": 0,\r\n    \"nome\": \"alex egidio teste gravcaovvvvv\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/springboot-rest-api-sample/salvar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"springboot-rest-api-sample",
+						"salvar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Adicionar usuario id 4",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idade\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/springboot-rest-api-sample/salvar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"springboot-rest-api-sample",
+						"salvar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Adicionar usuario id 5",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idade\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/springboot-rest-api-sample/salvar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"springboot-rest-api-sample",
+						"salvar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Adicionar usuario id 6",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idade\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/springboot-rest-api-sample/salvar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"springboot-rest-api-sample",
+						"salvar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Adicionar usuario id 7",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idade\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/springboot-rest-api-sample/salvar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"springboot-rest-api-sample",
+						"salvar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Adicionar usuario id 8",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idade\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/springboot-rest-api-sample/salvar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"springboot-rest-api-sample",
+						"salvar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Adicionar usuario id 9",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idade\": 0,\r\n    \"nome\": \"alex egidio teste gravcao\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/springboot-rest-api-sample/salvar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"springboot-rest-api-sample",
+						"salvar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Adicionar usuario id 10",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idade\": 0,\r\n    \"nome\": \"alex egidio testdddde gravcao\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/springboot-rest-api-sample/salvar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"springboot-rest-api-sample",
+						"salvar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Adicionar usuario id 11",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idade\": 0,\r\n    \"nome\": \"alex egidio testdddde gravcao\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/springboot-rest-api-sample/salvar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"springboot-rest-api-sample",
+						"salvar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Adicionar usuario id 12",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idade\": 34,\r\n    \"nome\": \"alex egidio teste gravcao\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/springboot-rest-api-sample/salvar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"springboot-rest-api-sample",
+						"salvar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Adicionar usuario id 13",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idade\": 34,\r\n    \"nome\": \"gravando salvar com postman\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/springboot-rest-api-sample/salvar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"springboot-rest-api-sample",
+						"salvar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Adicionar usuario id 14",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idade\": 34,\r\n    \"nome\": \"gravando salvar com postman\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/springboot-rest-api-sample/salvar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"springboot-rest-api-sample",
+						"salvar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Adicionar usuario id 15",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idade\": 34,\r\n    \"nome\": \"gravando salvar com postman\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/springboot-rest-api-sample/salvar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"springboot-rest-api-sample",
+						"salvar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Adicionar usuario id 16",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idade\": 34,\r\n    \"nome\": \"gravando salvar com postman\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/springboot-rest-api-sample/salvar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"springboot-rest-api-sample",
+						"salvar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Apagar o primeiro usuário",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idUser",
+							"value": "9",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/springboot-rest-api-sample/apagar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"springboot-rest-api-sample",
+						"apagar"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
