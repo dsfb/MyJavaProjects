@@ -32,44 +32,7 @@ public class UsuarioController {
 	@Autowired
 	private UsuarioRepository usuarioRepository; // CI, CD, CDI, inversão de dependências!!!
 	
-    /**
-     *
-     * @param name the name to greet
-     * @return greeting text
-     */
-    @RequestMapping(value = "/{name}", method = RequestMethod.GET)
-    @ResponseStatus(HttpStatus.OK)
-    public String greetingText(@PathVariable String name) {
-        return "Curso Spring Boot API: " + name + "!";
-    }
-
-    @RequestMapping(value = "/olaMundo")
-    public String olaMundo() {
-        return "Olá, Mundo!";
-    }
-
-    /**
-    *
-    * @param name the name to greet
-    * @return greeting text
-    */
-   @RequestMapping(value = "/mostrarNome/{name}", method = RequestMethod.GET)
-   @ResponseStatus(HttpStatus.OK)
-   public String showNameText(@PathVariable String name) {
-       return "Mostrando o nome: " + name + "!";
-   }
-
-   @RequestMapping(value = "/olaMundo/{nome}", method = RequestMethod.GET)
-   @ResponseStatus(HttpStatus.OK)
-   public String retornaOlaMundo(@PathVariable String nome) {
-	   Usuario usuario = new Usuario();
-	   usuario.setNome(nome);
-	   usuario.setIdade(36);
-	   usuarioRepository.save(usuario); // grava no banco de dados PostgreSQL !!!
-	   return String.format("Olá Mundo.\nEu sou o(a): %s.", nome);
-   }
-
-   @GetMapping(value="listaTodos") /* Nosso primeiro método de API Rest! */
+    @GetMapping(value="listaTodos") /* Nosso primeiro método de API Rest! */
    @ResponseBody /* dados para o corpo da resposta */
    public ResponseEntity<List<Usuario>> listaUsuarios() {
 	   List<Usuario> usuarios = this.usuarioRepository.findAll();
