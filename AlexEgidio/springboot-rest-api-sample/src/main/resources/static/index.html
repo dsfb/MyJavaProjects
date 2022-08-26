@@ -31,6 +31,7 @@
 </form>
 
 <button type="button" class="btn btn-primary" onclick="salvarUsuario()">Salvar</button>
+<button type="button" class="btn btn-secondary" onclick="document.getElementById('formCadastroUser').reset();">Novo</button>
 
 <!-- Source: https://w3codegenerator.com/code-snippets/jquery/jquery-360minjs-cdn-link -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -45,6 +46,23 @@
     var nome = $("#nome").val();
     var idade = $("#idade").val();
 
+    // copiar & colar!
+    // e o tipo de dado é: JSON!
+    $.ajax({
+    	method: "POST",
+    	url: "salvar",
+    	data: JSON.stringify({id: id, nome: nome, idade: idade}),
+    	contentType: "application/json; charset=utf-8",
+    	success: function(response) {
+    		$("#id").val(response.id);
+    		alert("Gravou com Sucesso!");
+    	}
+    }).fail(function (xhr, status, errorThrown) {
+    	// xhr: contém o texto descritivo do erro!
+    	// status: HTTP Code da resposta, como 500, 400, etc.
+    	// errorThrown: uma espécie de stacktrace (?)
+    	alert("Erro ao salvar usuário: " + xhr.responseText);
+    });
   }
 </script>
 
